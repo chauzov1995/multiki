@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e9e24747</color>
+    <color name="colorPrimaryDark">#e9c13c3c</color>
+    <color name="colorAccent">#e9e24747</color>
+
+    <color name="colorVerno">#e731c23d</color>
+    <color name="colorNEVerno">#e07b0303</color>
+
+    <color name="Black0Percent">#92000000</color>
+    <color name="black_overlay">#66000000</color>
+</resources>
