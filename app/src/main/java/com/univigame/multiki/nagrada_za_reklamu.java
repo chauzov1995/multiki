@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -44,7 +45,9 @@ public class nagrada_za_reklamu extends AppCompatActivity implements RewardedVid
 
 
 
-        MobileAds.initialize(this, "ca-app-pub-3318198202821312~9591462919");
+        MobileAds.initialize(this, "ca-app-pub-3318198202821312~7245735679");
+
+
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
@@ -56,10 +59,11 @@ public class nagrada_za_reklamu extends AppCompatActivity implements RewardedVid
 
 
     private void loadRewardedVideoAd() {
-
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating", "G");
        // mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
-        mRewardedVideoAd.loadAd("ca-app-pub-3318198202821312/2922521904",
-                new AdRequest.Builder().build());
+        mRewardedVideoAd.loadAd("ca-app-pub-3318198202821312/7697678739",
+                new AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter.class, extras).build());
     }
 
     @Override

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Угадай страну</string>
     <string name="title_activity_game">game</string>
-    <string name="baner_botoom">ca-app-pub-3318198202821312/4474867607</string>
+    <string name="baner_botoom">ca-app-pub-3318198202821312/4428000644</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

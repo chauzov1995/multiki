@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -49,10 +50,13 @@ public class game extends AppCompatActivity {
 
         tekactiviti = this;
 
-        MobileAds.initialize(this, "ca-app-pub-3318198202821312~9591462919");
+        MobileAds.initialize(this, "ca-app-pub-3318198202821312~7245735679");
+
+        Bundle extras = new Bundle();
+        extras.putString("max_ad_content_rating", "G");
 
         AdView mAdView = (AdView) findViewById(R.id.banner);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter.class, extras).build();
         mAdView.loadAd(adRequest);
 
 

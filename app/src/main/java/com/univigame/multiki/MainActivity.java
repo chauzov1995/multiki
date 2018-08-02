@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3318198202821312~9591462919");
 
         tekactiviti=this;
         Button byn_start = (Button) findViewById(R.id.byn_start);
