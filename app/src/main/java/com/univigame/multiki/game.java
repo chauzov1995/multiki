@@ -1,11 +1,13 @@
 package com.univigame.multiki;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -151,9 +153,9 @@ public class game extends AppCompatActivity {
         level = (cursor.getInt(cursor.getColumnIndex("level")));
         //  textView.setText(score);
         textView2.setText(money + "");
-        textView.setText(level + "/" + lengtht);
+        textView.setText(level+1 + "/" + lengtht);
         cursor.close();
-Log.d("getmoney","dsds");
+
     }
 
     void minus_monetka(int value) {
@@ -165,32 +167,7 @@ Log.d("getmoney","dsds");
 
     }
 
-    void srtimage() {
 
-
-        Cursor cursor = mDb.rawQuery("SELECT * FROM t where id =" + spisokvsego.get(level).id, null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-
-            byte[] bitmap1 = (cursor.getBlob(cursor.getColumnIndex("image")));
-
-
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inDither = false;
-            options.inPurgeable = true;
-            options.inInputShareable = true;
-            options.inTempStorage = new byte[1024 * 32];
-
-            Bitmap bm = BitmapFactory.decodeByteArray(bitmap1, 0, bitmap1.length, options);
-            imageView.setImageBitmap(bm);
-
-
-            cursor.moveToNext();
-        }
-        cursor.close();
-
-        //  ubratb_1nepr();
-    }
 
     void load_new_vopr() {
 
@@ -228,6 +205,33 @@ Log.d("getmoney","dsds");
 
     }
 
+    void srtimage() {
+
+
+        Cursor cursor = mDb.rawQuery("SELECT * FROM t where id =" + spisokvsego.get(level).id, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+
+            byte[] bitmap1 = (cursor.getBlob(cursor.getColumnIndex("image")));
+
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inDither = false;
+            options.inPurgeable = true;
+            options.inInputShareable = true;
+            options.inTempStorage = new byte[1024 * 32];
+
+            Bitmap bm = BitmapFactory.decodeByteArray(bitmap1, 0, bitmap1.length, options);
+            imageView.setImageBitmap(bm);
+
+
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        //  ubratb_1nepr();
+    }
+
     void otvnvibor(int nombtn, View r) {
         if (money-10 >= 0) {
 
@@ -263,8 +267,25 @@ Log.d("getmoney","dsds");
 
 
             if (prav) {
-
-                mDb.execSQL("UPDATE `records` SET score=score+10, level=level+1");
+if(level+1==lengtht){
+    //+100000
+    int Plus_pobeda=lengtht*10+10;
+    mDb.execSQL("UPDATE `records` SET score=score+"+Plus_pobeda+", level=0");
+    AlertDialog.Builder builder = new AlertDialog.Builder(game.this);
+    builder.setTitle("Поздравляем!")
+            .setMessage("Вы отгадали всех персонажей, вы получаете "+Plus_pobeda+" бонусных очков")
+            .setCancelable(false)
+            .setNegativeButton("Спасибо",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+    AlertDialog alert = builder.create();
+    alert.show();
+}else {
+    mDb.execSQL("UPDATE `records` SET score=score+10, level=level+1");
+}
                 load_new_vopr();
 
 

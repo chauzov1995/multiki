@@ -15,7 +15,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="Убрать 1 непраильный ответ (-5)"
+        android:text="Убрать 1 неправильный ответ (-5)"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

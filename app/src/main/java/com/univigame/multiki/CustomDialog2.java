@@ -24,7 +24,7 @@ public class CustomDialog2 {
     private void init(){
 
         dialog = new Dialog(activity, R.style.CustomDialog);
-        dialog.setTitle("Custom dialog title");
+        dialog.setTitle("Недостаточно монет");
         dialog.setContentView(R.layout.dialog_monetki);
         dialog.setCancelable(false);
 

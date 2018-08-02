@@ -23,9 +23,10 @@ public class CustomDialog1  {
     private void init(){
 
         dialog = new Dialog(activity, R.style.CustomDialog);
-        dialog.setTitle("Custom dialog title");
+        dialog.setTitle("Подсказки");
         dialog.setContentView(R.layout.dialog);
         dialog.setCancelable(false);
+
 
 
                 button4 = (Button) dialog.findViewById( R.id.button4 );
