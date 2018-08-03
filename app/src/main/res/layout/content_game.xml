@@ -22,27 +22,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
-    <LinearLayout
+    <TableLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="2"
+
         app:layout_constraintBottom_toTopOf="@+id/banner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:weightSum="2">
+            android:layout_height="wrap_content">
 
             <Button
                 android:id="@+id/otv1"
                 style="@style/RoundedCornerButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+
                 android:layout_weight="1"
                 android:text="Button" />
 
@@ -51,21 +50,22 @@
                 style="@style/RoundedCornerButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+
                 android:layout_weight="1"
                 android:text="Button" />
-        </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:weightSum="2">
+            android:layout_weight="1">
 
             <Button
                 android:id="@+id/otv3"
                 style="@style/RoundedCornerButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+
                 android:layout_weight="1"
                 android:text="Button" />
 
@@ -74,11 +74,12 @@
                 style="@style/RoundedCornerButton"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+
                 android:layout_weight="1"
                 android:text="Button" />
-        </LinearLayout>
+        </TableRow>
 
-    </LinearLayout>
+    </TableLayout>
 
     <com.google.android.gms.ads.AdView xmlns:ads='http://schemas.android.com/apk/res-auto'
         android:id="@+id/banner"

@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/flag"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,15 +23,14 @@
         <activity
             android:name=".game"
             android:label="@string/title_activity_game"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".rezultat"
-            android:label="@string/title_activity_rezultat"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".nagrada_za_reklamu"
             android:label="@string/title_activity_nagrada_za_reklamu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
