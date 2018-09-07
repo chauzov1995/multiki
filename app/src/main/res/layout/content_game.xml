@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
-    <TableLayout
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,9 +32,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:baselineAligned="false"
+            >
 
             <Button
                 android:id="@+id/otv1"
@@ -53,12 +56,14 @@
 
                 android:layout_weight="1"
                 android:text="Button" />
-        </TableRow>
+        </LinearLayout>
 
-        <TableRow
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:weightSum="2"
+            android:baselineAligned="false"
+            >
 
             <Button
                 android:id="@+id/otv3"
@@ -77,9 +82,9 @@
 
                 android:layout_weight="1"
                 android:text="Button" />
-        </TableRow>
+        </LinearLayout>
 
-    </TableLayout>
+    </LinearLayout>
 
     <com.google.android.gms.ads.AdView xmlns:ads='http://schemas.android.com/apk/res-auto'
         android:id="@+id/banner"
