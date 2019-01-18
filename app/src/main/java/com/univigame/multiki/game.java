@@ -6,6 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.google.ads.mediation.admob.AdMobAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 import java.io.IOException;
@@ -27,6 +29,8 @@ import java.util.ArrayList;
 
 public class game extends AppCompatActivity {
 
+    //настройки
+    int pokaz_rekl_kajd_n_otv=5;
 
     //Переменная для работы с БД
     // FrameLayout contin;
@@ -42,6 +46,9 @@ public class game extends AppCompatActivity {
     int random_vopt_btn;
     int money, score, level;
     boolean[] btn_enabl = {true, true, true, true};
+    private InterstitialAd mInterstitialAd;
+    int rekl_n_otv=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,13 @@ public class game extends AppCompatActivity {
         tekactiviti = this;
 
         MobileAds.initialize(this, "ca-app-pub-3318198202821312~7245735679");
+
+
+        //всплывающяя реклама
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3318198202821312/2140228786");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        //всплывающяя реклама
 
         Bundle extras = new Bundle();
         extras.putString("max_ad_content_rating", "G");
@@ -157,7 +171,7 @@ public class game extends AppCompatActivity {
         level = (cursor.getInt(cursor.getColumnIndex("level")));
         //  textView.setText(score);
         textView2.setText(money + "");
-        textView.setText(level+1 + "/" + lengtht);
+        textView.setText("Уровень "+(level+1));
         cursor.close();
 
     }
@@ -277,7 +291,7 @@ if(level+1==lengtht){
     mDb.execSQL("UPDATE `records` SET score=score+"+Plus_pobeda+", level=0");
     AlertDialog.Builder builder = new AlertDialog.Builder(game.this);
     builder.setTitle("Поздравляем!")
-            .setMessage("Вы отгадали всех персонажей, вы получаете "+Plus_pobeda+" бонусных очков")
+            .setMessage("Вы отгадали все картинки, вы получаете "+Plus_pobeda+" бонусных очков")
             .setCancelable(false)
             .setNegativeButton("Спасибо",
                     new DialogInterface.OnClickListener() {
@@ -293,6 +307,20 @@ if(level+1==lengtht){
                 load_new_vopr();
 
 
+                if(rekl_n_otv>=pokaz_rekl_kajd_n_otv) {
+                    if (mInterstitialAd.isLoaded()) {
+                        mInterstitialAd.show();
+                        mInterstitialAd = new InterstitialAd(this);
+                        mInterstitialAd.setAdUnitId("ca-app-pub-3318198202821312/2140228786");
+                        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                    } else {
+                        Log.d("TAG", "The interstitial wasn't loaded yet.");
+                    }
+                    rekl_n_otv=-1;
+                }
+                rekl_n_otv++;
+
+
             } else {
                 minus_monetka(10);
 
@@ -303,17 +331,39 @@ if(level+1==lengtht){
             customDialog2.show();
 
         }
-    }
 
+
+    }
 
 
     void enabled_btn_otv(int nomen) {
         btn_enabl[nomen] = false;
+        switch (nomen){
+        case 0:
+        otv1.setVisibility(View.INVISIBLE);
+        break;
+            case 1:
+                otv2.setVisibility(View.INVISIBLE);
+                break;
+            case 2:
+                otv3.setVisibility(View.INVISIBLE);
+                break;
+            case 3:
+                otv4.setVisibility(View.INVISIBLE);
+                break;
+    }
 
+
+/*
         otv1.setEnabled(btn_enabl[0]);
         otv2.setEnabled(btn_enabl[1]);
         otv3.setEnabled(btn_enabl[2]);
         otv4.setEnabled(btn_enabl[3]);
+        otv1.setVisibility(View.INVISIBLE);
+        otv2.setBackground(getDrawable(android.R.color.holo_orange_light));;
+        otv3.setEnabled(btn_enabl[2]);
+        otv4.setEnabled(btn_enabl[3]);
+*/
     }
 
     void enabled_btn_new() {
@@ -322,10 +372,14 @@ if(level+1==lengtht){
         btn_enabl[2] = true;
         btn_enabl[3] = true;
 
-        otv1.setEnabled(btn_enabl[0]);
-        otv2.setEnabled(btn_enabl[1]);
-        otv3.setEnabled(btn_enabl[2]);
-        otv4.setEnabled(btn_enabl[3]);
+     //   otv1.setEnabled(btn_enabl[0]);
+    //    otv2.setEnabled(btn_enabl[1]);
+     //   otv3.setEnabled(btn_enabl[2]);
+     //   otv4.setEnabled(btn_enabl[3]);
+        otv1.setVisibility(View.VISIBLE);
+        otv2.setVisibility(View.VISIBLE);
+        otv3.setVisibility(View.VISIBLE);
+        otv4.setVisibility(View.VISIBLE);
     }
 
     public void ubratb_1nepr() {

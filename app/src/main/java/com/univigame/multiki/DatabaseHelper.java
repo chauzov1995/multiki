@@ -106,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
       //  Log.d("asdad", "asdasdasd");
         db.execSQL("INSERT INTO `records`" +
                 "( `money`,`level`) VALUES" +
-                " (300,0)");
+                " (100,0)");
     }
 
     @Override
