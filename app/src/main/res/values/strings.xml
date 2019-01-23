@@ -1,15 +1,29 @@
 <resources>
+
+
+
+
     <string name="app_name">Угадай героя мультика</string>
-    <!--<string name="app_name">Угадай героя мультика</string>!-->
-    <!--<string name="app_name">Угадай русское авто</string>!-->
-    <string name="title_activity_game">game</string>
-
-
-
     <string name="rekl_id_app">ca-app-pub-3318198202821312~7245735679</string>
-    <string name="perehod_rekl">ca-app-pub-3318198202821312/2140228786</string>
-    <string name="baner_botoom">ca-app-pub-3318198202821312/4428000644</string>
     <string name="voznagr_rekl">ca-app-pub-3318198202821312/7697678739</string>
+    <string name="baner_botoom">ca-app-pub-3318198202821312/4428000644</string>
+    <string name="perehod_rekl">ca-app-pub-3318198202821312/2140228786</string>
+<!--
+    <string name="app_name">Угадай звезду ТНТ</string>
+    <string name="rekl_id_app">ca-app-pub-3318198202821312~3141307503</string>
+    <string name="voznagr_rekl">ca-app-pub-3318198202821312/6070723173</string>
+    <string name="baner_botoom">ca-app-pub-3318198202821312/1932113715</string>
+    <string name="perehod_rekl">ca-app-pub-3318198202821312/1740542026</string>
+
+    <string name="app_name">Угадай русское авто</string>
+    <string name="rekl_id_app">ca-app-pub-3318198202821312~7254090130</string>
+    <string name="voznagr_rekl">ca-app-pub-3318198202821312/8679686599</string>
+    <string name="baner_botoom">ca-app-pub-3318198202821312/6875650339</string>
+    <string name="perehod_rekl">ca-app-pub-3318198202821312/3371519590</string>
+!-->
+
+
+    <string name="title_activity_game">game</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
