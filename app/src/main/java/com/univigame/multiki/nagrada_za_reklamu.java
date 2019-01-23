@@ -45,7 +45,7 @@ public class nagrada_za_reklamu extends AppCompatActivity implements RewardedVid
 
 
 
-        MobileAds.initialize(this, "ca-app-pub-3318198202821312~7245735679");
+        MobileAds.initialize(this, getString(R.string.rekl_id_app));
 
 
 
@@ -62,7 +62,7 @@ public class nagrada_za_reklamu extends AppCompatActivity implements RewardedVid
         Bundle extras = new Bundle();
         extras.putString("max_ad_content_rating", "G");
        // mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
-        mRewardedVideoAd.loadAd("ca-app-pub-3318198202821312/7697678739",
+        mRewardedVideoAd.loadAd(getString(R.string.voznagr_rekl),
                 new AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter.class, extras).build());
     }
 

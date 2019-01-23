@@ -57,12 +57,12 @@ public class game extends AppCompatActivity {
 
         tekactiviti = this;
 
-        MobileAds.initialize(this, "ca-app-pub-3318198202821312~7245735679");
+        MobileAds.initialize(this, getString(R.string.rekl_id_app));
 
 
         //всплывающяя реклама
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3318198202821312/2140228786");
+        mInterstitialAd.setAdUnitId(getString(R.string.perehod_rekl));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         //всплывающяя реклама
 
@@ -311,7 +311,7 @@ if(level+1==lengtht){
                     if (mInterstitialAd.isLoaded()) {
                         mInterstitialAd.show();
                         mInterstitialAd = new InterstitialAd(this);
-                        mInterstitialAd.setAdUnitId("ca-app-pub-3318198202821312/2140228786");
+                        mInterstitialAd.setAdUnitId(getString(R.string.perehod_rekl));
                         mInterstitialAd.loadAd(new AdRequest.Builder().build());
                     } else {
                         Log.d("TAG", "The interstitial wasn't loaded yet.");

@@ -1,8 +1,15 @@
 <resources>
+    <string name="app_name">Угадай героя мультика</string>
     <!--<string name="app_name">Угадай героя мультика</string>!-->
-    <string name="app_name">Угадай русское авто</string>
+    <!--<string name="app_name">Угадай русское авто</string>!-->
     <string name="title_activity_game">game</string>
+
+
+
+    <string name="rekl_id_app">ca-app-pub-3318198202821312~7245735679</string>
+    <string name="perehod_rekl">ca-app-pub-3318198202821312/2140228786</string>
     <string name="baner_botoom">ca-app-pub-3318198202821312/4428000644</string>
+    <string name="voznagr_rekl">ca-app-pub-3318198202821312/7697678739</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>

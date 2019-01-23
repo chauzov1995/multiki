@@ -8,14 +8,14 @@
     <application
         android:allowBackup="true"
           android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher_rusavto"
-        android:roundIcon="@mipmap/ic_launcher_r_rusavto"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_r"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3318198202821312~7245735679"/>
+            android:value="@string/rekl_id_app"/>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
