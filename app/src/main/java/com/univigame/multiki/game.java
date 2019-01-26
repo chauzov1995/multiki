@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class game extends AppCompatActivity {
 
     //настройки
-    int pokaz_rekl_kajd_n_otv=5;
+    int pokaz_rekl_kajd_n_otv=8;
 
     //Переменная для работы с БД
     // FrameLayout contin;
